@@ -1,8 +1,14 @@
 <h1>Portfolio Items</h1>
 
+<a href="portfolios/new">Create New User</a>
+<%= link_to "Create User", new_portfolio_path %>
+<%= link_to "Create user", new_portfolio_url, subdomain: "my_subdomain" %>
+
 <% @portfolio_items.each do |portfolio| %>
-  <p><%= portfolio.title %></p>
+  <p><%= link_to portfolio.title, portfolio_path(portfolio) %></p>
   <p><%= portfolio.subtitle %></p>
   <p><%= portfolio.body %></p>
   <%= image_tag portfolio.thumb_image if portfolio.thumb_image %>
+  <%= link_to "Edit", edit_portfolio_path(portfolio) %>
+  <%= link_to "Delete", portfolio_path(portfolio), method: :delete, data: {confirm: 'Are your sure?'} %>
 <% end %>
