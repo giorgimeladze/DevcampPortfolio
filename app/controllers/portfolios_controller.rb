@@ -4,6 +4,10 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
 
+  def angular
+    @angular_items = Portfolio.angular
+  end
+
   def show
     @portfolio = Portfolio.find(params[:id])
   end
@@ -42,7 +46,7 @@ class PortfoliosController < ApplicationController
   def destroy
     @portfolio = Portfolio.find(params[:id])
     @portfolio.destroy
-    
+
     respond_to do |format|
        format.html {redirect_to portfolios_path, notice: "Your portfolio was deleted"}
     end
