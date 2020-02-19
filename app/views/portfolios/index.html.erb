@@ -1,8 +1,6 @@
 <h1>Portfolio Items</h1>
 
-<a href="portfolios/new">Create New User</a>
-<%= link_to "Create User", new_portfolio_path %>
-<%= link_to "Create user", new_portfolio_url, subdomain: "my_subdomain" %>
+<%= link_to "Create Portfolio", new_portfolio_path %>
 
 <% @portfolio_items.each do |portfolio| %>
   <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
