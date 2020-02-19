@@ -1,8 +1,10 @@
-<h1>Portfolio Items</h1>
+<h1>Angular Portfolio Items</h1>
 
-<%= link_to "Create Portfolio", new_portfolio_path %>
+<a href="portfolios/new">Create New User</a>
+<%= link_to "Create new portfolio", new_portfolio_path %>
+<%= link_to "Create new portfolio", new_portfolio_url, subdomain: "my_subdomain" %>
 
-<% @portfolio_items.each do |portfolio| %>
+<% @angular_items.each do |portfolio| %>
   <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
   <p><%= portfolio.subtitle %></p>
   <p><%= portfolio.body %></p>

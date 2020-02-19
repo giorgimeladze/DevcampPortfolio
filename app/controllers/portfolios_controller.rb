@@ -4,16 +4,22 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
 
+  def angular
+    @angular_items = Portfolio.angular
+  end
+
   def show
     @portfolio = Portfolio.find(params[:id])
   end
 
   def new
     @portfolio = Portfolio.new
+    3.times { @portfolio.technologies.build}
   end
 
   def create
-    @portfolio = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+    @portfolio = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body,
+          technologies_attributes: [:name]))
     respond_to do |format|
       if @portfolio.save
         format.html {redirect_to portfolios_path, notice: "Your portfolio was created"}
@@ -42,7 +48,7 @@ class PortfoliosController < ApplicationController
   def destroy
     @portfolio = Portfolio.find(params[:id])
     @portfolio.destroy
-    
+
     respond_to do |format|
        format.html {redirect_to portfolios_path, notice: "Your portfolio was deleted"}
     end
