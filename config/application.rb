@@ -30,6 +30,8 @@ module DevcampPortfolio
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    # will set whitelisting to true, by default it is false and we need to whitelist.
+    # config.action_controller.permit_all_parameters = true
     config.generators.system_tests = nil
   end
 end
