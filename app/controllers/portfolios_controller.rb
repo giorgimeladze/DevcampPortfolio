@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  layout "portfolio"
   #only index,new, and create doesn't need id at first
   def index
     @portfolio_items = Portfolio.all
