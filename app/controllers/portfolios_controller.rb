@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout "portfolio"
   #only index,new, and create doesn't need id at first
   def index
@@ -10,7 +11,6 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])
   end
 
   def new
@@ -30,13 +30,10 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio = Portfolio.find(params[:id])
     3.times { @portfolio.technologies.build}
   end
 
   def update
-    @portfolio = Portfolio.find(params[:id])
-
     respond_to do |format|
       if @portfolio.update(portfolios_params)
         format.html {redirect_to portfolios_path, notice: "Your portfolio was updated"}
@@ -47,9 +44,7 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @portfolio = Portfolio.find(params[:id])
     @portfolio.destroy
-
     respond_to do |format|
        format.html {redirect_to portfolios_path, notice: "Your portfolio was deleted"}
     end
@@ -62,5 +57,9 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       technologies_attributes: [:name]
                                     )
+  end
+
+  def set_portfolio_item
+    @portfolio = Portfolio.find(params[:id])
   end
 end
