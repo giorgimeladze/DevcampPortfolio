@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/giorgimeladze/meladze_view_tool
+  revision: e2d8437cb786f5b75c6a657f28b477f49406aedc
+  specs:
+    meladze_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -181,6 +187,7 @@ DEPENDENCIES
   duktape
   friendly_id (~> 5.2.4)
   jbuilder (~> 2.5)
+  meladze_view_tool!
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)

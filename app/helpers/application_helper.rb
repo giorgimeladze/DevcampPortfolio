@@ -14,4 +14,8 @@ module ApplicationHelper
       content_tag(:p, "Thanks for visiting me from #{session[:source]} #{layout_name}", class: "source-greeting")
     end
   end
+
+  def copyright_generator
+    MeladzeViewTool::Renderer.copyright "Meladze", "All rights reserved"
+  end
 end
