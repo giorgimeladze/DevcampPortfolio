@@ -99,6 +99,8 @@ GEM
     nokogiri (1.10.8-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    petergate (2.0.1)
+      activerecord (> 4.0.0)
     pg (1.2.2-x64-mingw32)
     puma (3.12.2)
     rack (2.2.2)
@@ -188,6 +190,7 @@ DEPENDENCIES
   friendly_id (~> 5.2.4)
   jbuilder (~> 2.5)
   meladze_view_tool!
+  petergate (~> 2.0, >= 2.0.1)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)
